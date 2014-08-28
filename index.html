@@ -66,7 +66,12 @@
        float: right;
         width:50%;
         height: 50%;
-      }   
+      } 
+      #time {
+        float: right;
+        text-align: bottom;
+        font-size: 10px;
+      }          
       /*aboutme*/ 
     /* .lead{
       font-family:Serif;
@@ -257,8 +262,8 @@
                 min = (min<10) ? '0' + min : min;
                 var dt = day+'/'+(month+1)+' '+h+':'+min;               
                 if(bubbleno==1) {
-                  $( ".bubblecontainer" ).prepend("<div class='bubble'>"+text+" <div id='time'>"+dt+"</div></div>"); bubbleno=0; }
-                else { $( ".bubblecontainer" ).prepend("<div class='bubble bubble--alt'>"+text+" <div id='time'>"+dt+"</div></div>"); bubbleno=1; }
+                  $( ".bubblecontainer" ).prepend("<div class='bubble'>"+text+"<br> <div id='time'>"+dt+"</div></div>"); bubbleno=0; }
+                else { $( ".bubblecontainer" ).prepend("<div class='bubble bubble--alt'>"+text+"<br> <div id='time'>"+dt+"</div></div>"); bubbleno=1; }
                 $( "#bubbleform" ).focus();
                 $('#bubbleform').val("");
             });     
@@ -344,17 +349,17 @@ background-repeat: no-repeat;">
                 </div>        </h1> 
             <div class="bubblecontainer">
                <div class="bubble bubble--alt">
-                Due date is tomorrow oh my goshhhhhhhhhhh <div id="time"> 23/8 14:00pm</div>
+                Due date is tomorrow oh my goshhhhhhhhhhh <br/> <div id="time"> 23/8 14:00pm</div>
               </div>            
               <div class="bubble">
                 Java lecture homework! <br/>
                 <img src="img/oh-boy.gif" alt=""/> <br/> <div id="time"> 22/8 8:00pm</div>
               </div>  
               <div class="bubble bubble--alt">
-                Intro to ICE Homework! <div id="time"> 21/8 14:35pm</div>
+                Intro to ICE Homework! <br/> <div id="time"> 21/8 14:35pm</div>
               </div>                                 
               <div class="bubble">
-                Java lab homework! <div id="time"> 20/8 13:25pm</div>
+                Java lab homework! <br/> <div id="time"> 20/8 13:25pm</div>
               </div>                            
                           
             </div>  
