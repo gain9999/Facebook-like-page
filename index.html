@@ -25,18 +25,6 @@
       aside {
         margin: 0px;
       }
-      /*section {
-        float: left;
-        width: 330px;
-        background-color: blue;
-        height: 310px;
-      }
-      aside {
-        float: right;
-        width: 480px;
-        background-color: pink;
-        height: 310px;
-      }*/
       section {
         float:left;
         width: 100%;
@@ -72,151 +60,21 @@
         text-align: bottom;
         font-size: 10px;
       }          
-      /*aboutme*/ 
-    /* .lead{
-      font-family:Serif;
-      font-size: 200%;   
-    }
-    .title{
-        margin: -5px 15px;
-        text-align: left;
-      }
-      .divide{
-        margin: 20px 15px;
-        text-align: left;
-      }
-      .Date{
-       margin: 20px 15px;
-       width:22%;
-       text-align: left;
-      }
-      .year{
-       width:22%;
-       text-align: left;
-       margin: 20px 15px;
-      }
-      .sex{
-       width:22%;
-       text-align: left;
-       margin: 20px 15px;
-      }
-      .education{
-       width:35%;
-       text-align: left;
-       margin: 20px 15px;
-      }
-      .cutting{
-        margin:10px 700px 0 0;
-      }
-      .work1{
-       width:22%;
-       text-align: left;
-       margin: 15px 15px;
-      }
-      .work2{
-       width:20%;
-       text-align: left;
-       margin: 15px 15px;
-      } 
-       #container { 
-      width: 80%;
-      height:60%;
-       margin: 0 0 0 175px; /* top right bottom left 
-       padding: 0; 
-       background-position: center;
-      }
-       #container section { 
-      margin: 0px 0px 0px 0px;
-       padding: 0; 
-       width: 80%; 
-       height: 45%; 
-       float: left;
-      border-bottom: solid 10px;
-      border-bottom-color: rgba(255,255,255,.40);
-      background-color:red; 
-      background-size: 100% 100%;
-         } 
-		 .bottom{
-			 margin: 0px 0px 0px 0px;
-              padding: 0;
-			 width: 100%; 
-			 height: 100%; 
-			 }
-         #container #col1 { 
-          width: 20%; 
-          height: 55%; 
-          float: left; 
-          border-left: solid 10px;
-          border-left: rgba(255,255,255,.40);
-          background-color: blue;
-          background-size: 100% 100%;
-          background-position: center;
-          border-right: solid 10px;
-          border-right-color: rgba(255,255,255,.40);
-         } 
-         #container #col2outer { 
-          width: 80%;
-          height: 55%; 
-          float: right; 
-          margin: 0; 
-          padding: 0; 
-          background-color: yellow;
-          background-size: 100% 100%;
-          background-position: center; 
-         } #col2outer #col2mid {
-          width: 75%; 
-          height: 55%; 
-          float: left;
-      } 
-      #col2outer #col2side {
-       width: 25%; 
-       height: 100%;  
-       float: right;
-       background-size: 100% 100%;
-       background-position: center;
-       background-color: green;
-       border-left: solid 10px;
-       border-left-color: rgba(255,255,255,.40);
-      }
-      #gain{
-        margin: 80px 0px 0px 0px;
-        width: 13%; 
-        height: 45%;
-      }
-      .hobicon{
-      margin: 50px;
-      height: 100%;
-      }
-      #aboutme2{
-        width:85%;
-        height:100%;
-      }
-      #chula{
-       margin: 15px 0px 0 0;
-       z-index:1;
-      }
-      #pic{
-      float:left;
-      }
-      #info{
-      margin: -10px 0 0 0;
-      float:right;
-      }
-      #infod{
-      margin: -28px 0 0 0;
-      float:right;
-      }                 */
 	  #col1 {
 		  height:100%;
 		  background-color:black;
 		  float: left; width: 25%; 
+      overflow: hidden;
 	  }
 	  #col2{
 		  height:100%;
-		  background-color:pink;
-		  float: left;  width: 75%; 
-		  	  
+      background-image: url('img/white.png');
+      background-repeat:no-repeat;
+      background-size:cover;    
+		  float: left;  width: 75%; 	
+      overflow: hidden;	  	  
 	  }
+  
     </style>
      <link href="css/cover.css" rel="stylesheet">
      <link href="css/lightbox.css" rel="stylesheet" />
@@ -266,22 +124,20 @@
                 else { $( ".bubblecontainer" ).prepend("<div class='bubble bubble--alt'>"+text+"<br> <div id='time'>"+dt+"</div></div>"); bubbleno=1; }
                 $( "#bubbleform" ).focus();
                 $('#bubbleform').val("");
-            });     
+            });  
+            function initialize() {
+              var map_canvas = document.getElementById('map_canvas');
+              var map_options = {
+                center: new google.maps.LatLng(13.7383,100.5324),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              }
+              var map = new google.maps.Map(map_canvas, map_options)
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);              
         });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
-      function initialize() {
-        var map_canvas = document.getElementById('map_canvas');
-        var map_options = {
-          center: new google.maps.LatLng(13.7383,100.5324),
-          zoom: 15,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(map_canvas, map_options)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>    
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -293,7 +149,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#coverhead">
-       <img src="img/amass.png" width= 120px height=90px ></img>
+        <img src="img/amass.png" width="120px" height="90px"</img>
       </a>
     </div>
 
@@ -341,27 +197,27 @@ background-repeat: no-repeat;">
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="inner cover">
-                <h1 class="cover-heading"><br/><div class="input-group">
-                  <input type="text" class="form-control" placeholder="What's on your mind?" id="bubbleform">
-                  <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" id="post">Post</button>
-                  </span>
-                </div>        </h1> 
-            <div class="bubblecontainer">
-               <div class="bubble bubble--alt">
-                Due date is tomorrow oh my goshhhhhhhhhhh <br/> <div id="time"> 23/8 14:00pm</div>
-              </div>            
-              <div class="bubble">
-                Java lecture homework! <br/>
-                <img src="img/oh-boy.gif" alt=""/> <br/> <div id="time"> 22/8 8:00pm</div>
-              </div>  
-              <div class="bubble bubble--alt">
-                Intro to ICE Homework! <br/> <div id="time"> 21/8 14:35pm</div>
-              </div>                                 
-              <div class="bubble">
-                Java lab homework! <br/> <div id="time"> 20/8 13:25pm</div>
-              </div>                            
-                          
+                  <h1 class="cover-heading"><br/>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="What's on your mind?" id="bubbleform">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" id="post">Post</button>
+                    </span>
+                  </div>        </h1> 
+                <div class="bubblecontainer" style="width:100%;">
+                 <div class="bubble bubble--alt">
+                  Due date is tomorrow oh my goshhhhhhhhhhh <br/> <div id="time"> 23/8 14:00pm</div>
+                </div>            
+                <div class="bubble">
+                  Java lecture homework! <br/>
+                  <img src="img/oh-boy.gif" alt=""/> <br/> <div id="time"> 22/8 8:00pm</div>
+                </div>  
+                <div class="bubble bubble--alt">
+                  Intro to ICE Homework! <br/> <div id="time"> 21/8 14:35pm</div>
+                </div>                                 
+                <div class="bubble">
+                  Java lab homework! <br/> <div id="time"> 20/8 13:25pm</div>
+                </div>                                 
             </div>  
           </div>
         </div>
@@ -370,10 +226,9 @@ background-repeat: no-repeat;">
 
     <div class="site-wrapper" id="aboutme">
 
-      <div class="site-wrapper-inner"">
+      <div class="site-wrapper-inner">
         <div class="cover-container">
-          <div class="inner cover" style="background-image: url('img/white.png');background-size: 100% 100%;
-background-repeat: no-repeat; width:100%; height:550px; padding: 0px 0px 0px 0px;">
+          <div class="inner cover" style="background-image: url('img/white.png');background-size: 100% 100%; background-repeat: no-repeat; width:100%; height:550px; padding: 0px 0px 0px 0px;">
 				  <div id="col1">
                             <h5><strong>HOBBIES</strong></h5>
                             <a href="#aboutme"><img src="img/bt.png" width=55px></a>
@@ -433,140 +288,6 @@ background-repeat: no-repeat; width:100%; height:550px; padding: 0px 0px 0px 0px
         </div>
       </div>
     </div>    
-   <!-- <div class="site-wrapper" id="aboutme">
-
-      <div class="site-wrapper-inner">
-
-        <div id="container"> 
-          <section style="background-image: url('img/view.png');">
-            <img src="img/profile.jpg" id="gain"/>
-            <h1 class="lead"><strong>Siraphob Boonvanich</strong></h1>
-          </section> 
-          <aside class="bottom">
-                      <div id="col1" style="background-image: url('img/grey.jpg');" > 
-                        <h2><strong>HOBBIES</strong></h2>
-                          <div class"hobicon">
-                            <a href="#"><img src="img/bt.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/bk.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/gt.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/bx.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/ts.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/at.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/gm.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/fh.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/po.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/kr.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/rc.png" width=90px height=90px/></a>
-                            <a href="#"><img src="img/bw.png" width=90px height=90px/></a>  
-                          </div>
-                       </div> 
-                       <div id="col2outer"style="background-image: url('img/white.png');">
-                        <div id="col2mid">
-                              <div class="title">
-                                     <h3 class"lead2"><font color="black"/><strong>
-                                      Information</strong></h3>
-                              </div> 
-                              <div class="divide">
-                                <p>________________________</p>
-                              </div>      
-                              <div class="Date"> 
-            
-                                    <div id="chula" >
-                                      <h4><strong>Date of birth:</strong></h4>
-                                      <div id="infod">
-                                       <p> 5 october</p> 
-                                       </div>
-                                    </div>
-                              </div>
-                              <div class="year"> 
-                                    <div id="chula" >
-                                      <h4><strong>Year:</strong></h4>
-                                      <div id="infod">
-                                       <p>1993</p> 
-                                       </div>
-                                    </div>
-                              </div>
-                              <div class="sex"> 
-                                    <div id="chula" >
-                                      <h4><strong>Sex:</strong></h4>
-                                      <div id="infod">
-                                       <p>Male</p> 
-                                       </div>
-                                    </div>
-                              </div>
-                              <div class="divide">
-                                <p>________________________</p>
-                              </div>    
-                              <div class="education"> 
-                                    <h4 class"lead2"><font color="black"/><strong>
-                                      Education</strong></h4>
-                                    <div id="chula" >
-                                      <div id="pic">
-                                      <img src="img/chula.png"/>
-                                      </div>
-                                      <div id="info">
-                                       <p><h5><font color="black"/><strong>International School of Engineering (ISE)</strong></h5> Chulalongkorn University</p> 
-                                       </div>
-                                    </div>
-                              </div>
-                              <div class="work1"> 
-                                    <h4 class"lead2"><font color="black"/><strong>
-                                      Workplace</strong></h4>
-                                    <div id="chula" >
-                                      <div id="pic">
-                                      <img src="img/chula.png"/>
-                                      </div>
-                                      <div id="info">
-                                       <p><h5><font color="black"/><strong>Siam Paragon</strong></h5> Customer Related Officer </p> 
-                                       </div>
-                                    </div>
-                              </div>
-                              <div class="cutting">
-                                  <h4>......................................</h4>
-                              </div>
-                              <div class="work2"> 
-                                    <div id="chula" >
-                                      <div id="pic">
-                                      <img src="img/chula.png"/>
-                                      </div>
-                                      <div id="info">
-                                       <p><h5><font color="black"/><strong>MindPHP</strong></h5>PHP Web Programmer</p> 
-                                       </div>
-                                    </div>
-                              </div>
-                        </div> 
-                        <div id="col2side" style="background-image: url('img/grey.jpg');" >
-                         <h2><strong>FAVOURITE</strong></h2>
-                         <p>
-                          <ul><h3 style="color: rgba(255,0,0,.60)">Movies</h3>
-                            <div> 
-                              <a href="#"><img src="img/300.png" width=90px height=90px/></a>
-                              <a href="#"><img src="img/starwar.png" width=90px height=90px/></a>
-                            </div> 
-                          </ul>
-                          <ul><h3 style="color: rgba(0,255,0,.60)">Books</h3>
-                            <div> 
-                              <a href="#"><img src="img/hp.png" width=90px height=90px/></a>
-                              <a href="#"><img src="img/ch.png" width=90px height=90px/></a>
-                            </div> 
-                          </ul>
-                          <ul><h3 style="color: rgba(0,255,255,.60)">Songs</h3>
-                            <div> 
-                              <a href="#"><img src="img/dp.png" width=90px height=90px/></a>
-                              <a href="#"><img src="img/mz.png" width=90px height=90px/></a>
-                            </div> 
-                          </ul>
-                         </p>
-                          </div> 
-                      </div> 
-                </aside>
-            
-           </div>  
-
-      </div>
-
-    </div>  
-    -->
     <div class="site-wrapper" id="friends">
 
       <div class="site-wrapper-inner">
@@ -576,8 +297,21 @@ background-repeat: no-repeat; width:100%; height:550px; padding: 0px 0px 0px 0px
           <div class="inner cover">
               <div id="randomFriends" style="position: relative;">
               <script type="text/javascript">
-                function makeDiv(){
-                    var divsize = ((Math.random()*100) + 70).toFixed();
+                 function getOffset( el ) {
+                    var _x = 0;
+                    var _y = 0;
+                    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+                        _x += el.offsetLeft - el.scrollLeft;
+                        _y += el.offsetTop - el.scrollTop;
+                        el = el.offsetParent;
+                    }
+                    return { top: _y, left: _x };
+                }                     
+                function makeDiv(){                    
+                    screenw = $(window).width()*0.7;
+                    screenh = $(window).height()*0.6;  
+                    //var divsize = ((Math.random()*100) + 70).toFixed();
+                    var divsize = Math.floor((Math.random() * screenw*0.11) + screenw*0.07);
                     var color = '#'+ Math.round(0xffffff * Math.random()).toString(16);
                     var ranImg = Math.floor(Math.random() * 47) + 1;
                     $newdiv = $('<div/>').css({
@@ -589,10 +323,13 @@ background-repeat: no-repeat; width:100%; height:550px; padding: 0px 0px 0px 0px
                         'border': '5px solid '+color,
                         'background-color': color
                     });
-                    
-                    var posx = Math.floor((Math.random() * 650) - 100);
-                    var posy = Math.floor((Math.random() * 400) - 250);
-                    
+                    var id = document.getElementById('randomFriends');
+                    var topdiv = getOffset(id).top;   
+                    var leftdiv = getOffset(id).left;
+
+                    var posx = Math.floor((Math.random() * screenw) - topdiv/3);
+                    var posy = Math.floor((Math.random() * screenh) - leftdiv/1.5);
+
                     $newdiv.css({
                         'position':'absolute',
                         'left':posx+'px',
